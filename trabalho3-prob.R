@@ -11,8 +11,8 @@ str(dados)
 
 
 
-tab_grau = table(grau_dependencia)
-mean(grau_dependencia) # da erro ???
+tab_grau = as.numeric(grau_dependencia)
+mean(tab_grau) # da erro ???
 
 amostra = sample(grau_dependencia, 2, replace = FALSE, prob = NULL)
 mean(amostra)
