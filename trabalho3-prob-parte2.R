@@ -5,6 +5,8 @@ populacao = read_excel("dados_trabalho.xls")
 attach(populacao)
 str(populacao)
 
+valor = 0.05
+
 dividir = split(as.numeric(grau_satisfacao), genero)
 
 feminino = dividir$F
@@ -17,7 +19,6 @@ generoAmostra<-list()
 for (i in 1:100){
   satisAmostra[[i]] = sample(grau_satisfacao, size = 20, replace = FALSE)
   generoAmostra[[i]] = sample(genero, size = 20, replace = FALSE)
-  ##amostras[[i]]<-populacao[sample(nrow(populacao),size=20,replace=FALSE),]
 }
 
 tteste = t.test(feminino, masculino)
@@ -44,7 +45,7 @@ for(i in 1:100) {
   testeAmostras = t.test(fAmostras, mAmostras)
   testeAmostras$p.value
   
-  if(testeAmostras$p.value < 0.01)
+  if(testeAmostras$p.value < valor)
     c20 = c20+1
 }
 
@@ -53,7 +54,6 @@ for(i in 1:100) {
 for (i in 1:100){
   satisAmostra[[i]] = sample(grau_satisfacao, size = 30, replace = FALSE)
   generoAmostra[[i]] = sample(genero, size = 30, replace = FALSE)
-  ##amostras[[i]]<-populacao[sample(nrow(populacao),size=20,replace=FALSE),]
 }
 
 c30 = 0
@@ -67,7 +67,7 @@ for(i in 1:100) {
   
   testeAmostras = t.test(fAmostras, mAmostras)
   
-  if(testeAmostras$p.value < 0.01)
+  if(testeAmostras$p.value < valor)
     c30 = c30+1
 }
 
@@ -76,7 +76,6 @@ for(i in 1:100) {
 for (i in 1:100){
   satisAmostra[[i]] = sample(grau_satisfacao, size = 50, replace = FALSE)
   generoAmostra[[i]] = sample(genero, size = 50, replace = FALSE)
-  ##amostras[[i]]<-populacao[sample(nrow(populacao),size=20,replace=FALSE),]
 }
 
 c50 = 0
@@ -91,7 +90,7 @@ for(i in 1:100) {
   testeAmostras = t.test(fAmostras, mAmostras)
   testeAmostras$p.value
   
-  if(testeAmostras$p.value < 0.01)
+  if(testeAmostras$p.value < valor)
     c50 = c50+1
 }
 
@@ -100,7 +99,6 @@ for(i in 1:100) {
 for (i in 1:100){
   satisAmostra[[i]] = sample(grau_satisfacao, size = 80, replace = FALSE)
   generoAmostra[[i]] = sample(genero, size = 80, replace = FALSE)
-  ##amostras[[i]]<-populacao[sample(nrow(populacao),size=20,replace=FALSE),]
 }
 
 c80 = 0
@@ -115,7 +113,7 @@ for(i in 1:100) {
   testeAmostras = t.test(fAmostras, mAmostras)
   testeAmostras$p.value
   
-  if(testeAmostras$p.value < 0.01)
+  if(testeAmostras$p.value < valor)
     c80 = c80+1
 }
 
@@ -124,7 +122,6 @@ for(i in 1:100) {
 for (i in 1:100){
   satisAmostra[[i]] = sample(grau_satisfacao, size = 120, replace = FALSE)
   generoAmostra[[i]] = sample(genero, size = 120, replace = FALSE)
-  ##amostras[[i]]<-populacao[sample(nrow(populacao),size=20,replace=FALSE),]
 }
 
 c120 = 0
@@ -139,7 +136,7 @@ for(i in 1:100) {
   testeAmostras = t.test(fAmostras, mAmostras)
   testeAmostras$p.value
   
-  if(testeAmostras$p.value < 0.01)
+  if(testeAmostras$p.value < valor)
     c120 = c120+1
 }
 
@@ -148,13 +145,11 @@ for(i in 1:100) {
 for (i in 1:100){
   satisAmostra[[i]] = sample(grau_satisfacao, size = 150, replace = FALSE)
   generoAmostra[[i]] = sample(genero, size = 150, replace = FALSE)
-  ##amostras[[i]]<-populacao[sample(nrow(populacao),size=20,replace=FALSE),]
 }
 
 c150 = 0
 
 for(i in 1:100) {
-  i=1
   d = split(as.numeric(as.character(unlist(satisAmostra[[i]]))), generoAmostra[i])
   
   fAmostras = d$F
@@ -165,6 +160,6 @@ for(i in 1:100) {
   testeAmostras = t.test(fAmostras, mAmostras)
   testeAmostras$p.value
   
-  if(testeAmostras$p.value < 0.01)
+  if(testeAmostras$p.value < valor)
     c150 = c150+1
 }
