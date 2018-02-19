@@ -21,9 +21,9 @@ for (i in 1:100){
   generoAmostra[[i]] = sample(genero, size = 20, replace = FALSE)
 }
 
-tteste = t.test(feminino, masculino)
+tteste = t.test(masculino, feminino)
 
-tteste$p.value #Valor-P < 0,01. A hipótese nula pode ser rejeitada
+tteste$p.value #Valor-P < 0,05. A hipótese nula pode ser rejeitada
 
 testeAmostras = 0
 
@@ -38,11 +38,11 @@ c20 = 0
 for(i in 1:100) {
   
   d = split(as.numeric(as.character(unlist(satisAmostra[[i]]))), generoAmostra[i])
-  
+  d
   fAmostras = d$F
   mAmostras = d$M
   
-  testeAmostras = t.test(fAmostras, mAmostras)
+  testeAmostras = t.test(mAmostras, fAmostras)
   testeAmostras$p.value
   
   if(testeAmostras$p.value < valor)
@@ -163,3 +163,10 @@ for(i in 1:100) {
   if(testeAmostras$p.value < valor)
     c150 = c150+1
 }
+
+c20
+c30
+c50
+c80
+c120
+c150
